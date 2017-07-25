@@ -1,0 +1,49 @@
+{
+  "hosting": {
+    "public": "build/default",
+    "rewrites": [
+      {
+        "source": "!{/bower_components}/**",
+        "destination": "/index.html"
+      }
+    ],
+    "headers": [
+      {
+        "source" : "**/*.@(eot|otf|ttf|ttc|woff|font.css)",
+        "headers" : [
+          {
+            "key" : "Access-Control-Allow-Origin",
+            "value" : "*"
+          }
+        ]
+      },
+      {
+        "source": "**/*.html",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=0"
+          }
+        ]
+      },
+      {
+        "source" : "**/*.@(jpg|jpeg|gif|png)",
+        "headers" : [
+          {
+            "key" : "Cache-Control",
+            "value" : "max-age=7200"
+          }
+        ]
+      },
+      {
+        "source" : "404.html",
+        "headers" : [
+          {
+            "key" : "Cache-Control",
+            "value" : "max-age=300"
+          }
+        ]
+      }
+    ]
+  }
+}
